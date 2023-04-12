@@ -35,6 +35,7 @@ describe("POST /", function () {
     expect(resp.statusCode).toEqual(400);
   });
 
+  //TODO: rather than chain into error, paste whole error object
   test("fails invalid productId, address", async function () {
     const resp = await request(app)
       .post("/shipments")

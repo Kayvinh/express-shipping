@@ -17,12 +17,11 @@ const { shipProduct } = require("../shipItApi");
  */
 
 router.post("/", async function (req, res, next) {
-  if (req.body === undefined) {
-    throw new BadRequestError();
-  }
 
   const result = jsonschema.validate(
-    req.body, shipmentSchema, {required: true});
+    req.body,
+    shipmentSchema,
+    {required: true});
 
   if (!result.valid) {
     // pass validation errors to error handler
